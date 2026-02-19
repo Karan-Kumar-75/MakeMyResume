@@ -4,7 +4,6 @@
    ============================================ */
 
 .template-12 .resume-header {
-    background: #f0f9ff;
     padding: 18px 20px;
     margin: -15mm -15mm 16px -15mm;
     width: calc(100% + 30mm);
@@ -94,7 +93,6 @@
 .template-12 .resume-skill-item {
     font-size: 9pt;
     padding: 3px 10px;
-    background: #f0f9ff;
     color: #0369a1;
     border-radius: 4px;
     border: 1px solid #bae6fd;

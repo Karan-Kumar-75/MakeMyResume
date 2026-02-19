@@ -62,8 +62,8 @@
 .template-04 .resume-entry {
     margin-bottom: 10px;
     padding: 10px;
-    background: #fdf2f8;
     border-radius: 8px;
+    border: 1px solid #fce7f3;
 }
 
 .template-04 .resume-entry-header {
@@ -104,17 +104,17 @@
 .template-04 .resume-skill-item {
     font-size: 9pt;
     padding: 4px 12px;
-    background: linear-gradient(135deg, #fce7f3, #f3e8ff);
     color: #a21caf;
     border-radius: 16px;
     font-weight: 500;
+    border: 1px solid #fce7f3;
 }
 
 .template-04 .resume-summary {
     font-size: 9.5pt;
     color: #475569;
     line-height: 1.6;
-    background: #fdf2f8;
     padding: 10px;
     border-radius: 8px;
+    border-left: 3px solid #ec4899;
 }

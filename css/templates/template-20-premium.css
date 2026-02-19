@@ -108,7 +108,7 @@
 .template-20 .resume-skill-item {
     font-size: 9pt;
     padding: 3px 12px;
-    background: linear-gradient(135deg, #fef9e7, #fef3c7);
+    background: transparent;
     color: #92742e;
     border-radius: 16px;
     border: 1px solid #d4a853;

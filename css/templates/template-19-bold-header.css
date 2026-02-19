@@ -93,10 +93,10 @@
 .template-19 .resume-skill-item {
     font-size: 9pt;
     padding: 3px 10px;
-    background: #f1f5f9;
     color: #1e293b;
     border-radius: 3px;
     font-weight: 500;
+    border: 1px solid #cbd5e1;
 }
 
 .template-19 .resume-summary {
