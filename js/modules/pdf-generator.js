@@ -1,259 +1,128 @@
 /* ============================================================
-   DOCX Generator — A4 Word Document Download
-   Uses docx.js with jsDelivr + unpkg fallback loading
+   Print & Reset Module
+   - Print Resume via window.print() — zero library dependency
+   - Reset Form clears everything
    ============================================================ */
 
 import { $, showToast } from '../utils/helpers.js';
 import { collectFormData } from './form-handler.js';
-import { formatDateRange } from '../utils/formatter.js';
+import { generatePreview } from './preview-generator.js';
+import { getActiveTemplate } from './template-switcher.js';
 
-const A4_W = 11906;          // A4 width in twips (210mm)
-const A4_H = 16838;          // A4 height in twips (297mm)
-const MARGIN = Math.round(2 * 567); // 2 cm margins
-
-const pt = n => n * 20;        // points → half-points (docx font size unit)
-
-let isGenerating = false;
-
-/* ── Dynamic loader ─────────────────────────────────────── */
-function loadScript(src) {
-    return new Promise((resolve, reject) => {
-        const s = document.createElement('script');
-        s.src = src; s.onload = resolve; s.onerror = reject;
-        document.head.appendChild(s);
-    });
-}
-
-async function ensureDocx() {
-    if (typeof docx !== 'undefined') return true;
-    const cdns = [
-        'https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.min.js',
-        'https://unpkg.com/docx@8.5.0/build/index.umd.min.js'
-    ];
-    for (const cdn of cdns) {
-        try {
-            await loadScript(cdn);
-            if (typeof docx !== 'undefined') return true;
-        } catch (_) { }
-    }
-    return false;
-}
-
-/* ── Init ───────────────────────────────────────────────── */
+/* ── Init ─────────────────────────────────────────────────── */
 export function initPdfGenerator() {
+    // "Print Resume" buttons
     ['download-pdf-btn', 'download-pdf-btn-2'].forEach(id => {
         const btn = document.getElementById(id);
-        if (btn) btn.addEventListener('click', handleDownload);
+        if (btn) btn.addEventListener('click', handlePrint);
     });
+
+    // "Reset Form" button
+    const resetBtn = document.getElementById('reset-btn');
+    if (resetBtn) resetBtn.addEventListener('click', resetForm);
 }
 
-async function handleDownload() {
-    if (isGenerating) return;
-    isGenerating = true;
-    try { await generateDoc(); }
-    finally { isGenerating = false; }
-}
-
-/* ── Helpers ────────────────────────────────────────────── */
-function sectionRule() {
-    const { Paragraph, BorderStyle } = docx;
-    return new Paragraph({
-        border: { bottom: { color: '334155', size: 6, space: 6, style: BorderStyle.SINGLE } },
-        spacing: { before: pt(6), after: pt(4) }
-    });
-}
-
-function sectionHeading(text) {
-    const { Paragraph, TextRun } = docx;
-    return new Paragraph({
-        children: [new TextRun({ text: text.toUpperCase(), bold: true, size: pt(13), color: '1e293b', font: 'Calibri' })],
-        spacing: { before: pt(12), after: pt(2) },
-        keepNext: true
-    });
-}
-
-function entryBlock({ title, subtitle, dateStr, description }) {
-    const { Paragraph, TextRun, TabStopType, TabStopPosition } = docx;
-    const rows = [];
-
-    if (title || dateStr) {
-        rows.push(new Paragraph({
-            children: [
-                new TextRun({ text: title || '', bold: true, size: pt(10.5), font: 'Calibri' }),
-                new TextRun({ text: '\t' }),
-                new TextRun({ text: dateStr || '', size: pt(11), color: '64748b', font: 'Calibri' })
-            ],
-            tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
-            spacing: { before: pt(6), after: 0 },
-            keepNext: true
-        }));
-    }
-    if (subtitle) {
-        rows.push(new Paragraph({
-            children: [new TextRun({ text: subtitle, italics: true, size: pt(11), color: '475569', font: 'Calibri' })],
-            spacing: { before: 0, after: 0 },
-            keepNext: !!description
-        }));
-    }
-    if (description) {
-        rows.push(new Paragraph({
-            children: [new TextRun({ text: description, size: pt(11), font: 'Calibri' })],
-            spacing: { before: pt(2), after: pt(4) }
-        }));
-    }
-    return rows;
-}
-
-/* ── Core generator ─────────────────────────────────────── */
-async function generateDoc() {
+/* ── Print ────────────────────────────────────────────────── */
+async function handlePrint() {
     const data = collectFormData();
 
     if (!data.personal?.fullName) {
-        showToast('Please enter your name first.', 'warning');
+        showToast('Please enter your name before printing.', 'warning');
         return;
     }
 
-    const btns = ['download-pdf-btn', 'download-pdf-btn-2']
-        .map(id => document.getElementById(id)).filter(Boolean);
-    btns.forEach(b => { b.disabled = true; b.textContent = '⏳ Loading…'; });
-    showToast('Loading document library…', 'info', 8000);
+    // Populate the dedicated print area with the resume HTML
+    const templateClass = getActiveTemplate();
+    const html = generatePreview(data, templateClass);
 
-    // Ensure docx.js is available
-    const loaded = await ensureDocx();
-    if (!loaded) {
-        showToast('Could not load document library. Check your internet connection.', 'error');
-        btns.forEach(b => { b.disabled = false; });
-        resetBtnLabels();
-        return;
+    let printArea = document.getElementById('resume-print-area');
+    if (!printArea) {
+        printArea = document.createElement('div');
+        printArea.id = 'resume-print-area';
+        printArea.style.display = 'none'; // hidden on screen, visible on print via CSS
+        document.body.appendChild(printArea);
     }
 
-    btns.forEach(b => { b.textContent = '⏳ Building…'; });
+    printArea.innerHTML = html;
+    printArea.style.display = 'block';
 
-    try {
-        const { Document, Packer, Paragraph, TextRun, AlignmentType } = docx;
-        const children = [];
+    // Small delay for fonts to render
+    await sleep(300);
 
-        // NAME
-        children.push(new Paragraph({
-            children: [new TextRun({ text: data.personal?.fullName || '', bold: true, size: pt(16), color: '0f172a', font: 'Calibri' })],
-            alignment: AlignmentType.CENTER,
-            spacing: { before: 0, after: pt(4) }
-        }));
+    // Trigger native browser print dialog
+    window.print();
 
-        // CONTACT
-        const contacts = [data.personal?.email, data.personal?.phone, data.personal?.address, data.personal?.linkedin, data.personal?.portfolio].filter(Boolean);
-        if (contacts.length) {
-            children.push(new Paragraph({
-                children: contacts.flatMap((c, i) => [
-                    new TextRun({ text: c, size: pt(11), color: '475569', font: 'Calibri' }),
-                    ...(i < contacts.length - 1 ? [new TextRun({ text: '  |  ', size: pt(11), color: '94a3b8', font: 'Calibri' })] : [])
-                ]),
-                alignment: AlignmentType.CENTER,
-                spacing: { before: 0, after: pt(8) }
-            }));
-        }
+    // After print dialog closes, hide the print area again
+    printArea.style.display = 'none';
+}
 
-        children.push(sectionRule());
+/* ── Reset Form ───────────────────────────────────────────── */
+function resetForm() {
+    // Clear all text inputs, textareas, selects
+    document.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(el => {
+        el.value = '';
+    });
 
-        // SUMMARY
-        if (data.summary) {
-            children.push(sectionHeading('Profile Summary'));
-            children.push(new Paragraph({ children: [new TextRun({ text: data.summary, size: pt(11), font: 'Calibri' })], spacing: { before: pt(4), after: pt(6) } }));
-        }
+    // Clear skills tags
+    const skillsContainer = document.getElementById('skills-tags');
+    if (skillsContainer) skillsContainer.innerHTML = '';
 
-        // EXPERIENCE
-        if (data.experience?.length) {
-            children.push(sectionHeading('Experience'));
-            data.experience.forEach(e => entryBlock({ title: e.jobTitle, subtitle: e.company, dateStr: formatDateRange(e.startDate, e.endDate, e.current), description: e.description }).forEach(p => children.push(p)));
-        }
-
-        // EDUCATION
-        if (data.education?.length) {
-            children.push(sectionHeading('Education'));
-            data.education.forEach(e => entryBlock({ title: e.degree, subtitle: e.institution, dateStr: formatDateRange(e.startDate, e.endDate), description: e.description }).forEach(p => children.push(p)));
-        }
-
-        // SKILLS
-        if (data.skills?.length) {
-            children.push(sectionHeading('Skills'));
-            children.push(new Paragraph({ children: [new TextRun({ text: data.skills.join('  •  '), size: pt(11), font: 'Calibri' })], spacing: { before: pt(4), after: pt(6) } }));
-        }
-
-        // PROJECTS
-        if (data.projects?.length) {
-            children.push(sectionHeading('Projects'));
-            data.projects.forEach(p => entryBlock({ title: p.name, subtitle: p.link || '', description: p.description }).forEach(row => children.push(row)));
-        }
-
-        // CERTIFICATIONS
-        if (data.certifications?.length) {
-            children.push(sectionHeading('Certifications'));
-            data.certifications.forEach(c => children.push(new Paragraph({
-                children: [
-                    new TextRun({ text: c.name, bold: true, size: pt(11), font: 'Calibri' }),
-                    ...(c.issuer ? [new TextRun({ text: ` — ${c.issuer}`, size: pt(11), font: 'Calibri' })] : []),
-                    ...(c.date ? [new TextRun({ text: ` (${c.date})`, size: pt(11), color: '64748b', font: 'Calibri' })] : [])
-                ],
-                spacing: { before: pt(4), after: pt(2) }
-            })));
-        }
-
-        // LANGUAGES
-        if (data.languages?.length) {
-            children.push(sectionHeading('Languages'));
-            data.languages.forEach(l => children.push(new Paragraph({
-                children: [
-                    new TextRun({ text: l.name, bold: true, size: pt(11), font: 'Calibri' }),
-                    ...(l.proficiency ? [new TextRun({ text: ` — ${l.proficiency}`, size: pt(11), font: 'Calibri' })] : [])
-                ],
-                spacing: { before: pt(2), after: pt(2) }
-            })));
-        }
-
-        // INTERESTS
-        if (data.interests?.length) {
-            children.push(sectionHeading('Interests'));
-            children.push(new Paragraph({ children: [new TextRun({ text: data.interests.join('  •  '), size: pt(11), font: 'Calibri' })], spacing: { before: pt(4), after: pt(4) } }));
-        }
-
-        // Build & save
-        const doc = new Document({
-            styles: {
-                default: {
-                    document: { run: { font: 'Calibri', size: pt(10) }, paragraph: { spacing: { line: 276 } } }
-                }
-            },
-            sections: [{
-                properties: {
-                    page: {
-                        size: { width: A4_W, height: A4_H },
-                        margin: { top: MARGIN, bottom: MARGIN, left: MARGIN, right: MARGIN }
-                    }
-                },
-                children
-            }]
+    // Clear dynamic entries (education, experience, projects, etc.)
+    ['education-entries', 'experience-entries', 'projects-entries',
+        'certifications-entries', 'languages-entries'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = '';
         });
 
-        const blob = await Packer.toBlob(doc);
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        const name = (data.personal.fullName || 'Resume').replace(/[^a-zA-Z0-9 ]/g, '').replace(/\s+/g, '_');
-        a.href = url; a.download = `${name}_Resume.docx`; a.click();
-        URL.revokeObjectURL(url);
-        showToast('Word document downloaded! 🎉', 'success');
+    // Show empty hints
+    ['education-empty', 'experience-empty', 'projects-empty',
+        'certifications-empty', 'languages-empty'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.display = '';
+        });
 
-    } catch (err) {
-        console.error('[DOCX] Failed:', err);
-        showToast(`Failed: ${err.message}`, 'error');
-    } finally {
-        btns.forEach(b => { b.disabled = false; });
-        resetBtnLabels();
+    // Remove profile image
+    const imgPreview = document.getElementById('image-preview-container');
+    if (imgPreview) { imgPreview.style.display = 'none'; imgPreview.innerHTML = ''; }
+    const removeBtn = document.getElementById('remove-image-btn');
+    if (removeBtn) removeBtn.style.display = 'none';
+    const dropZone = document.getElementById('image-drop-zone');
+    if (dropZone) dropZone.style.display = '';
+
+    // Clear preview panel
+    const previewInner = document.querySelector('.preview-resume-inner');
+    if (previewInner) {
+        previewInner.innerHTML = `
+      <p style="text-align:center;color:#94a3b8;padding:80px 20px;font-size:12px;">
+        Fill in the form to see your resume preview here ✨
+      </p>`;
     }
+
+    // Clear print area
+    const printArea = document.getElementById('resume-print-area');
+    if (printArea) { printArea.innerHTML = ''; printArea.style.display = 'none'; }
+
+    // Clear localStorage
+    try { localStorage.removeItem('resumeData'); } catch (_) { }
+
+    // Go back to step 1
+    document.querySelectorAll('.form-step').forEach((s, i) => {
+        s.classList.toggle('active', i === 0);
+    });
+    document.querySelectorAll('.step-item').forEach((s, i) => {
+        s.classList.toggle('active', i === 0);
+        s.classList.remove('completed');
+    });
+
+    const prevBtn = document.getElementById('btn-prev');
+    const nextBtn = document.getElementById('btn-next');
+    if (prevBtn) prevBtn.style.visibility = 'hidden';
+    if (nextBtn) nextBtn.textContent = 'Next →';
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    showToast('Form reset successfully!', 'success');
 }
 
-function resetBtnLabels() {
-    const main = document.getElementById('download-pdf-btn');
-    if (main) main.innerHTML = '<svg width="18" height="18"><use href="#icon-download"></use></svg> Download DOC';
-    const sec = document.getElementById('download-pdf-btn-2');
-    if (sec) sec.innerHTML = '<svg width="14" height="14"><use href="#icon-download"></use></svg> Download DOC';
-}
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }

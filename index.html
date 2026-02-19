@@ -20,16 +20,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/print.css">
 
-    <!-- docx.js for Word document export (primary: jsDelivr, fallback: unpkg) -->
-    <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.min.js"></script>
-    <script>
-        // Fallback: if jsDelivr failed, try unpkg
-        if (typeof docx === 'undefined') {
-            var s = document.createElement('script');
-            s.src = 'https://unpkg.com/docx@8.5.0/build/index.umd.min.js';
-            document.head.appendChild(s);
-        }
-    </script>
+    <!-- No PDF library needed — uses browser window.print() -->
 </head>
 
 <body>
@@ -86,11 +77,14 @@
                 <button class="btn btn-ghost btn-sm" id="load-sample-btn" title="Load sample data">
                     📋 Sample Data
                 </button>
+                <button class="btn btn-ghost btn-sm" id="reset-btn" title="Reset all form fields">
+                    🔄 Reset Form
+                </button>
                 <button class="btn btn-primary btn-sm" id="download-pdf-btn">
                     <svg width="18" height="18">
                         <use href="#icon-download"></use>
                     </svg>
-                    Download DOC
+                    Print Resume
                 </button>
             </nav>
         </div>
@@ -369,7 +363,7 @@
                                 style="font-size:var(--font-size-xs);padding:var(--space-1) var(--space-3);">
                                 <svg width="14" height="14">
                                     <use href="#icon-download"></use>
-                                </svg> Download DOC
+                                </svg> Print Resume
                             </button>
                         </div>
                         <div class="preview-body">

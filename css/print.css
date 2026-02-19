@@ -1,82 +1,111 @@
 /* ============================================
    Print Stylesheet — A4 Resume Output
+   Uses window.print() — no library needed
    ============================================ */
 
+/* ── Page Setup ─────────────────────────────── */
+@page {
+    size: A4;
+    margin: 20mm;
+}
+
+/* ── Print Media ────────────────────────────── */
 @media print {
 
-    /* Hide everything except the resume */
+    /* 1. Hide EVERYTHING first */
     body * {
         visibility: hidden;
     }
 
-    .preview-resume,
-    .preview-resume * {
+    /* 2. Show ONLY the resume inner content */
+    #resume-print-area,
+    #resume-print-area * {
         visibility: visible;
     }
 
-    .preview-resume {
+    /* 3. Position resume flush to page */
+    #resume-print-area {
         position: absolute;
         left: 0;
         top: 0;
-        width: 210mm;
-        min-height: 297mm;
+        width: 100%;
         margin: 0;
         padding: 0;
-        box-shadow: none;
         border: none;
+        box-shadow: none;
     }
 
-    /* Page setup */
-    @page {
-        size: A4;
-        margin: 0;
+    /* 4. Remove transform/scale from preview wrapper */
+    .preview-resume,
+    .preview-resume-inner {
+        transform: none !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        box-shadow: none !important;
     }
 
-    /* Page break handling */
-    .resume-section {
-        page-break-inside: avoid;
+    /* 5. Preserve background colors & fonts */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
-    .resume-entry {
-        page-break-inside: avoid;
-    }
-
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
-
-    /* Remove backgrounds, shadows for print */
+    /* 6. Hide all UI chrome */
     .app-header,
     .app-footer,
+    .app-nav,
     .form-panel,
     .step-wizard,
+    .progress-bar,
     .step-navigation,
     .preview-header,
     .preview-toggle,
     .template-gallery,
     .hero,
     .btn,
-    .toast-container {
+    #reset-btn,
+    .toast-container,
+    .filter-tabs {
         display: none !important;
     }
 
-    /* Clean typography */
+    /* 7. Page-break control */
+    .resume-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .resume-entry {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .resume-section-title,
+    h2,
+    h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    /* 8. Clean typography for print */
     body {
+        font-family: 'Poppins', sans-serif;
         font-size: 10pt;
-        line-height: 1.4;
+        line-height: 1.45;
         color: #000;
+        background: #fff;
     }
 
     a {
-        color: #000;
+        color: inherit;
         text-decoration: none;
     }
 
-    /* Ensure proper sizing */
-    .preview-resume-inner {
-        transform: none !important;
-        width: 210mm;
-        min-height: 297mm;
+    /* 9. No blank second page */
+    html,
+    body {
+        height: auto !important;
+        overflow: visible !important;
     }
 }
