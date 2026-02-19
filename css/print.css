@@ -6,7 +6,8 @@
 /* ── Page Setup ─────────────────────────────── */
 @page {
     size: A4;
-    margin: 20mm;
+    margin: 0;
+    /* Remove browser URL/date watermarks from print headers */
 }
 
 /* ── Print Media ────────────────────────────── */

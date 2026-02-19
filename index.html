@@ -184,202 +184,248 @@
                                 <div class="form-group">
                                     <label class="form-label" for="personal-phone">Phone</label>
                                     <input type="tel" class="form-input" id="personal-phone" data-validate="phone"
-                                        placeholder="+1 (555) 123-4567">
+                                        placeholder="+91 98765 43210">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="personal-address">Location</label>
-                                    <input type="text" class="form-input" id="personal-address"
-                                        placeholder="City, State">
+                                    <label class="form-label" for="personal-father">Father's Name</label>
+                                    <input type="text" class="form-input" id="personal-father"
+                                        placeholder="e.g. Ramesh Kumar">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label class="form-label" for="personal-linkedin">LinkedIn</label>
-                                    <input type="text" class="form-input" id="personal-linkedin" data-validate="url"
-                                        placeholder="linkedin.com/in/johndoe">
+                                    <label class="form-label" for="personal-dob">Date of Birth</label>
+                                    <input type="date" class="form-input" id="personal-dob">
                                 </div>
+                                <div class="form-group"><!-- spacer --></div>
+                                <!-- Address Fields -->
+                                <p
+                                    style="font-weight:600;margin-bottom:var(--space-3);color:var(--text-secondary);font-size:var(--font-size-sm)">
+                                    📍 Address</p>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="personal-vill">Village</label>
+                                        <input type="text" class="form-input" id="personal-vill"
+                                            placeholder="Village name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="personal-po">Post Office (PO)</label>
+                                        <input type="text" class="form-input" id="personal-po" placeholder="PO name">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="personal-ps">Police Station (PS)</label>
+                                        <input type="text" class="form-input" id="personal-ps" placeholder="PS name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="personal-city">City / District</label>
+                                        <input type="text" class="form-input" id="personal-city"
+                                            placeholder="e.g. Kolkata">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="personal-state">State</label>
+                                        <input type="text" class="form-input" id="personal-state"
+                                            placeholder="e.g. West Bengal">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="personal-pincode">PIN Code</label>
+                                        <input type="text" class="form-input" id="personal-pincode"
+                                            placeholder="e.g. 700001">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="personal-linkedin">LinkedIn</label>
+                                        <input type="text" class="form-input" id="personal-linkedin" data-validate="url"
+                                            placeholder="linkedin.com/in/johndoe">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="personal-portfolio">Portfolio / Website</label>
+                                        <input type="text" class="form-input" id="personal-portfolio"
+                                            data-validate="url" placeholder="www.johndoe.com">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Profile Summary -->
+                        <div class="form-step" data-step="summary">
+                            <div class="step-card">
+                                <h3 style="margin-bottom:var(--space-6)">📝 Profile Summary</h3>
                                 <div class="form-group">
-                                    <label class="form-label" for="personal-portfolio">Portfolio / Website</label>
-                                    <input type="text" class="form-input" id="personal-portfolio" data-validate="url"
-                                        placeholder="www.johndoe.com">
+                                    <label class="form-label" for="profile-summary">Professional Summary</label>
+                                    <textarea class="form-textarea" id="profile-summary" rows="6"
+                                        placeholder="Write 2-4 sentences highlighting your professional experience, key skills, and career goals. This appears at the top of your resume."></textarea>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Step 2: Profile Summary -->
-                    <div class="form-step" data-step="summary">
-                        <div class="step-card">
-                            <h3 style="margin-bottom:var(--space-6)">📝 Profile Summary</h3>
-                            <div class="form-group">
-                                <label class="form-label" for="profile-summary">Professional Summary</label>
-                                <textarea class="form-textarea" id="profile-summary" rows="6"
-                                    placeholder="Write 2-4 sentences highlighting your professional experience, key skills, and career goals. This appears at the top of your resume."></textarea>
+                        <!-- Step 3: Education -->
+                        <div class="form-step" data-step="education">
+                            <div class="step-card">
+                                <div class="form-section-header">
+                                    <h3>🎓 Education</h3>
+                                    <button class="btn btn-secondary btn-sm" data-add-entry="education">
+                                        <svg width="16" height="16">
+                                            <use href="#icon-plus"></use>
+                                        </svg> Add Education
+                                    </button>
+                                </div>
+                                <div class="entries-list" id="education-entries">
+                                    <!-- Dynamic entries will be added here -->
+                                </div>
+                                <p class="text-sm text-muted" style="margin-top:var(--space-4);text-align:center;"
+                                    id="education-empty">Click "Add Education" to add your educational background</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Step 3: Education -->
-                    <div class="form-step" data-step="education">
-                        <div class="step-card">
-                            <div class="form-section-header">
-                                <h3>🎓 Education</h3>
-                                <button class="btn btn-secondary btn-sm" data-add-entry="education">
-                                    <svg width="16" height="16">
-                                        <use href="#icon-plus"></use>
-                                    </svg> Add Education
-                                </button>
+                        <!-- Step 4: Experience -->
+                        <div class="form-step" data-step="experience">
+                            <div class="step-card">
+                                <div class="form-section-header">
+                                    <h3>💼 Experience</h3>
+                                    <button class="btn btn-secondary btn-sm" data-add-entry="experience">
+                                        <svg width="16" height="16">
+                                            <use href="#icon-plus"></use>
+                                        </svg> Add Experience
+                                    </button>
+                                </div>
+                                <div class="entries-list" id="experience-entries"></div>
+                                <p class="text-sm text-muted" style="margin-top:var(--space-4);text-align:center;"
+                                    id="experience-empty">Click "Add Experience" to add your work history</p>
                             </div>
-                            <div class="entries-list" id="education-entries">
-                                <!-- Dynamic entries will be added here -->
-                            </div>
-                            <p class="text-sm text-muted" style="margin-top:var(--space-4);text-align:center;"
-                                id="education-empty">Click "Add Education" to add your educational background</p>
                         </div>
-                    </div>
 
-                    <!-- Step 4: Experience -->
-                    <div class="form-step" data-step="experience">
-                        <div class="step-card">
-                            <div class="form-section-header">
-                                <h3>💼 Experience</h3>
-                                <button class="btn btn-secondary btn-sm" data-add-entry="experience">
-                                    <svg width="16" height="16">
-                                        <use href="#icon-plus"></use>
-                                    </svg> Add Experience
-                                </button>
-                            </div>
-                            <div class="entries-list" id="experience-entries"></div>
-                            <p class="text-sm text-muted" style="margin-top:var(--space-4);text-align:center;"
-                                id="experience-empty">Click "Add Experience" to add your work history</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 5: Skills -->
-                    <div class="form-step" data-step="skills">
-                        <div class="step-card">
-                            <h3 style="margin-bottom:var(--space-6)">⭐ Skills</h3>
-                            <div class="form-group">
-                                <label class="form-label">Add Skills (comma-separated for bulk add)</label>
-                                <div class="skill-input-row">
-                                    <input type="text" class="form-input" id="skill-input"
-                                        placeholder="e.g. JavaScript, React, Node.js">
-                                    <button class="btn btn-primary btn-sm" id="add-skill-btn">Add</button>
+                        <!-- Step 5: Skills -->
+                        <div class="form-step" data-step="skills">
+                            <div class="step-card">
+                                <h3 style="margin-bottom:var(--space-6)">⭐ Skills</h3>
+                                <div class="form-group">
+                                    <label class="form-label">Add Skills (comma-separated for bulk add)</label>
+                                    <div class="skill-input-row">
+                                        <input type="text" class="form-input" id="skill-input"
+                                            placeholder="e.g. JavaScript, React, Node.js">
+                                        <button class="btn btn-primary btn-sm" id="add-skill-btn">Add</button>
+                                    </div>
+                                </div>
+                                <div class="skills-container" id="skills-tags">
+                                    <!-- Skill tags will appear here -->
                                 </div>
                             </div>
-                            <div class="skills-container" id="skills-tags">
-                                <!-- Skill tags will appear here -->
+                        </div>
+
+                        <!-- Step 6: Projects -->
+                        <div class="form-step" data-step="projects">
+                            <div class="step-card">
+                                <div class="form-section-header">
+                                    <h3>🚀 Projects</h3>
+                                    <button class="btn btn-secondary btn-sm" data-add-entry="projects">
+                                        <svg width="16" height="16">
+                                            <use href="#icon-plus"></use>
+                                        </svg> Add Project
+                                    </button>
+                                </div>
+                                <div class="entries-list" id="projects-entries"></div>
+                                <p class="text-sm text-muted" style="margin-top:var(--space-4);text-align:center;"
+                                    id="projects-empty">Click "Add Project" to showcase your work</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Step 6: Projects -->
-                    <div class="form-step" data-step="projects">
-                        <div class="step-card">
-                            <div class="form-section-header">
-                                <h3>🚀 Projects</h3>
-                                <button class="btn btn-secondary btn-sm" data-add-entry="projects">
-                                    <svg width="16" height="16">
-                                        <use href="#icon-plus"></use>
-                                    </svg> Add Project
-                                </button>
-                            </div>
-                            <div class="entries-list" id="projects-entries"></div>
-                            <p class="text-sm text-muted" style="margin-top:var(--space-4);text-align:center;"
-                                id="projects-empty">Click "Add Project" to showcase your work</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 7: Certifications -->
-                    <div class="form-step" data-step="certifications">
-                        <div class="step-card">
-                            <div class="form-section-header">
-                                <h3>🏆 Certifications</h3>
-                                <button class="btn btn-secondary btn-sm" data-add-entry="certifications">
-                                    <svg width="16" height="16">
-                                        <use href="#icon-plus"></use>
-                                    </svg> Add Certification
-                                </button>
-                            </div>
-                            <div class="entries-list" id="certifications-entries"></div>
-                            <p class="text-sm text-muted" style="margin-top:var(--space-4);text-align:center;"
-                                id="certifications-empty">Click "Add Certification" to list your credentials</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 8: Languages -->
-                    <div class="form-step" data-step="languages">
-                        <div class="step-card">
-                            <div class="form-section-header">
-                                <h3>🌐 Languages</h3>
-                                <button class="btn btn-secondary btn-sm" data-add-entry="languages">
-                                    <svg width="16" height="16">
-                                        <use href="#icon-plus"></use>
-                                    </svg> Add Language
-                                </button>
-                            </div>
-                            <div class="entries-list" id="languages-entries"></div>
-                            <p class="text-sm text-muted" style="margin-top:var(--space-4);text-align:center;"
-                                id="languages-empty">Click "Add Language" to list languages you speak</p>
-                        </div>
-                    </div>
-
-                    <!-- Step 9: Interests -->
-                    <div class="form-step" data-step="interests">
-                        <div class="step-card">
-                            <h3 style="margin-bottom:var(--space-6)">💡 Interests</h3>
-                            <div class="form-group">
-                                <label class="form-label" for="interests-input">Interests & Hobbies
-                                    (comma-separated)</label>
-                                <input type="text" class="form-input" id="interests-input"
-                                    placeholder="e.g. Open Source, Tech Blogging, Photography">
-                                <p class="text-sm text-muted" style="margin-top:var(--space-2)">Separate multiple
-                                    interests with commas</p>
+                        <!-- Step 7: Certifications -->
+                        <div class="form-step" data-step="certifications">
+                            <div class="step-card">
+                                <div class="form-section-header">
+                                    <h3>🏆 Certifications</h3>
+                                    <button class="btn btn-secondary btn-sm" data-add-entry="certifications">
+                                        <svg width="16" height="16">
+                                            <use href="#icon-plus"></use>
+                                        </svg> Add Certification
+                                    </button>
+                                </div>
+                                <div class="entries-list" id="certifications-entries"></div>
+                                <p class="text-sm text-muted" style="margin-top:var(--space-4);text-align:center;"
+                                    id="certifications-empty">Click "Add Certification" to list your credentials</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Step Navigation -->
-                    <div class="step-navigation">
-                        <button class="btn btn-secondary" id="btn-prev" style="visibility:hidden">
-                            <svg width="18" height="18">
-                                <use href="#icon-arrow-left"></use>
-                            </svg> Previous
-                        </button>
-                        <button class="btn btn-primary" id="btn-next">
-                            Next <svg width="18" height="18">
-                                <use href="#icon-arrow-right"></use>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+                        <!-- Step 8: Languages -->
+                        <div class="form-step" data-step="languages">
+                            <div class="step-card">
+                                <div class="form-section-header">
+                                    <h3>🌐 Languages</h3>
+                                    <button class="btn btn-secondary btn-sm" data-add-entry="languages">
+                                        <svg width="16" height="16">
+                                            <use href="#icon-plus"></use>
+                                        </svg> Add Language
+                                    </button>
+                                </div>
+                                <div class="entries-list" id="languages-entries"></div>
+                                <p class="text-sm text-muted" style="margin-top:var(--space-4);text-align:center;"
+                                    id="languages-empty">Click "Add Language" to list languages you speak</p>
+                            </div>
+                        </div>
 
-                <!-- ────── PREVIEW PANEL ────── -->
-                <div class="preview-panel">
-                    <div class="preview-container">
-                        <div class="preview-header">
-                            <h4 style="font-size:var(--font-size-sm);margin:0;">Live Preview</h4>
-                            <button class="btn btn-primary btn-sm" id="download-pdf-btn-2"
-                                style="font-size:var(--font-size-xs);padding:var(--space-1) var(--space-3);">
-                                <svg width="14" height="14">
-                                    <use href="#icon-download"></use>
-                                </svg> Print Resume
+                        <!-- Step 9: Interests -->
+                        <div class="form-step" data-step="interests">
+                            <div class="step-card">
+                                <h3 style="margin-bottom:var(--space-6)">💡 Interests</h3>
+                                <div class="form-group">
+                                    <label class="form-label" for="interests-input">Interests & Hobbies
+                                        (comma-separated)</label>
+                                    <input type="text" class="form-input" id="interests-input"
+                                        placeholder="e.g. Open Source, Tech Blogging, Photography">
+                                    <p class="text-sm text-muted" style="margin-top:var(--space-2)">Separate multiple
+                                        interests with commas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step Navigation -->
+                        <div class="step-navigation">
+                            <button class="btn btn-secondary" id="btn-prev" style="visibility:hidden">
+                                <svg width="18" height="18">
+                                    <use href="#icon-arrow-left"></use>
+                                </svg> Previous
+                            </button>
+                            <button class="btn btn-primary" id="btn-next">
+                                Next <svg width="18" height="18">
+                                    <use href="#icon-arrow-right"></use>
+                                </svg>
                             </button>
                         </div>
-                        <div class="preview-body">
-                            <div class="preview-resume">
-                                <div class="preview-resume-inner">
-                                    <p style="text-align:center;color:#94a3b8;padding:80px 20px;font-size:12px;">
-                                        Fill in the form to see your resume preview here ✨
-                                    </p>
+                    </div>
+
+                    <!-- ────── PREVIEW PANEL ────── -->
+                    <div class="preview-panel">
+                        <div class="preview-container">
+                            <div class="preview-header">
+                                <h4 style="font-size:var(--font-size-sm);margin:0;">Live Preview</h4>
+                                <button class="btn btn-primary btn-sm" id="download-pdf-btn-2"
+                                    style="font-size:var(--font-size-xs);padding:var(--space-1) var(--space-3);">
+                                    <svg width="14" height="14">
+                                        <use href="#icon-download"></use>
+                                    </svg> Print Resume
+                                </button>
+                            </div>
+                            <div class="preview-body">
+                                <div class="preview-resume">
+                                    <div class="preview-resume-inner">
+                                        <p style="text-align:center;color:#94a3b8;padding:80px 20px;font-size:12px;">
+                                            Fill in the form to see your resume preview here ✨
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
     </main>
 
     <!-- ════════════ TEMPLATE GALLERY ════════════ -->

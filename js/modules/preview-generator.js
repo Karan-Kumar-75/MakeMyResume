@@ -278,10 +278,31 @@ function generateContactInfo(personal) {
     const items = [];
     if (personal.email) items.push(`<span>${escapeHtml(personal.email)}</span>`);
     if (personal.phone) items.push(`<span>${escapeHtml(personal.phone)}</span>`);
-    if (personal.address) items.push(`<span>${escapeHtml(personal.address)}</span>`);
     if (personal.linkedin) items.push(`<span>${escapeHtml(personal.linkedin)}</span>`);
     if (personal.portfolio) items.push(`<span>${escapeHtml(personal.portfolio)}</span>`);
-    return `<div class="resume-contact">${items.join('')}</div>`;
+
+    // Build full address string
+    const addrParts = [
+        personal.vill ? `Vill: ${personal.vill}` : '',
+        personal.po ? `PO: ${personal.po}` : '',
+        personal.ps ? `PS: ${personal.ps}` : '',
+        personal.city ? personal.city : '',
+        personal.state ? personal.state : '',
+        personal.pincode ? personal.pincode : ''
+    ].filter(Boolean);
+    if (addrParts.length) items.push(`<span>${escapeHtml(addrParts.join(', '))}</span>`);
+
+    let html = `<div class="resume-contact">${items.join('')}</div>`;
+
+    // Personal details row (father name + DOB)
+    const details = [];
+    if (personal.fatherName) details.push(`<span><strong>Father:</strong> ${escapeHtml(personal.fatherName)}</span>`);
+    if (personal.dob) details.push(`<span><strong>DOB:</strong> ${escapeHtml(personal.dob)}</span>`);
+    if (details.length) {
+        html += `<div class="resume-contact resume-personal-details">${details.join('')}</div>`;
+    }
+
+    return html;
 }
 
 /**
