@@ -1,0 +1,110 @@
+/* ============================================
+   Template 10 — Dark Header Accent
+   Dark header bar with clean white body
+   ============================================ */
+
+.template-10 .resume-header {
+    background: #0f172a;
+    color: white;
+    padding: 22px 24px;
+    margin: -15mm -15mm 16px -15mm;
+    width: calc(100% + 30mm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.template-10 .resume-header-left {
+    flex: 1;
+}
+
+.template-10 .resume-name {
+    font-size: 24pt;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.template-10 .resume-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 8.5pt;
+    color: #94a3b8;
+}
+
+.template-10 .resume-profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #334155;
+    flex-shrink: 0;
+}
+
+.template-10 .resume-section {
+    margin-bottom: 14px;
+}
+
+.template-10 .resume-section-title {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #0f172a;
+}
+
+.template-10 .resume-entry {
+    margin-bottom: 10px;
+}
+
+.template-10 .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.template-10 .resume-entry-title {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.template-10 .resume-entry-subtitle {
+    font-size: 9.5pt;
+    color: #475569;
+}
+
+.template-10 .resume-entry-date {
+    font-size: 9pt;
+    color: #64748b;
+}
+
+.template-10 .resume-entry-description {
+    font-size: 9.5pt;
+    color: #334155;
+    line-height: 1.5;
+    margin-top: 3px;
+}
+
+.template-10 .resume-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.template-10 .resume-skill-item {
+    font-size: 9pt;
+    padding: 3px 10px;
+    background: #0f172a;
+    color: white;
+    border-radius: 3px;
+}
+
+.template-10 .resume-summary {
+    font-size: 9.5pt;
+    color: #334155;
+    line-height: 1.6;
+}

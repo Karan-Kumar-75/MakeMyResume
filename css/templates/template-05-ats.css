@@ -1,0 +1,102 @@
+/* ============================================
+   Template 05 — ATS-Friendly
+   Plain, parser-optimized, no graphics
+   ============================================ */
+
+.template-05 .resume-header {
+    margin-bottom: 12px;
+}
+
+.template-05 .resume-name {
+    font-size: 20pt;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 4px;
+}
+
+.template-05 .resume-contact {
+    font-size: 10pt;
+    color: #333;
+    line-height: 1.6;
+}
+
+.template-05 .resume-contact span {
+    display: inline;
+}
+
+.template-05 .resume-contact span:not(:last-child)::after {
+    content: ' | ';
+    color: #666;
+}
+
+.template-05 .resume-profile-image {
+    display: none;
+    /* ATS doesn't need images */
+}
+
+.template-05 .resume-section {
+    margin-bottom: 12px;
+}
+
+.template-05 .resume-section-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    border-bottom: 2px solid #000;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+}
+
+.template-05 .resume-entry {
+    margin-bottom: 8px;
+}
+
+.template-05 .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.template-05 .resume-entry-title {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #000;
+}
+
+.template-05 .resume-entry-subtitle {
+    font-size: 10pt;
+    color: #333;
+}
+
+.template-05 .resume-entry-date {
+    font-size: 10pt;
+    color: #333;
+}
+
+.template-05 .resume-entry-description {
+    font-size: 10pt;
+    color: #333;
+    line-height: 1.5;
+    margin-top: 2px;
+}
+
+.template-05 .resume-skills-list {
+    font-size: 10pt;
+    color: #333;
+}
+
+.template-05 .resume-skill-item {
+    display: inline;
+    font-size: 10pt;
+}
+
+.template-05 .resume-skill-item:not(:last-child)::after {
+    content: ', ';
+}
+
+.template-05 .resume-summary {
+    font-size: 10pt;
+    color: #333;
+    line-height: 1.5;
+}

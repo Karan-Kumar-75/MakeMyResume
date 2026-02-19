@@ -1,0 +1,115 @@
+/* ============================================
+   Template 03 — Executive Corporate
+   Formal, elegant, suitable for senior roles
+   ============================================ */
+
+.template-03 .resume-header {
+    text-align: center;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    border-bottom: 3px double #1e293b;
+}
+
+.template-03 .resume-name {
+    font-size: 26pt;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.template-03 .resume-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    font-size: 9pt;
+    color: #475569;
+}
+
+.template-03 .resume-contact span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.template-03 .resume-profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin: 0 auto 10px;
+    display: block;
+    border: 2px solid #0f172a;
+}
+
+.template-03 .resume-section {
+    margin-bottom: 14px;
+}
+
+.template-03 .resume-section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #94a3b8;
+}
+
+.template-03 .resume-entry {
+    margin-bottom: 10px;
+}
+
+.template-03 .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.template-03 .resume-entry-title {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.template-03 .resume-entry-subtitle {
+    font-size: 9.5pt;
+    color: #475569;
+}
+
+.template-03 .resume-entry-date {
+    font-size: 9pt;
+    color: #64748b;
+    font-style: italic;
+}
+
+.template-03 .resume-entry-description {
+    font-size: 9.5pt;
+    color: #334155;
+    line-height: 1.5;
+    margin-top: 3px;
+}
+
+.template-03 .resume-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.template-03 .resume-skill-item {
+    font-size: 9pt;
+    color: #0f172a;
+    padding: 3px 10px;
+    border: 1px solid #94a3b8;
+    border-radius: 2px;
+}
+
+.template-03 .resume-summary {
+    font-size: 9.5pt;
+    color: #334155;
+    line-height: 1.6;
+    text-align: justify;
+}

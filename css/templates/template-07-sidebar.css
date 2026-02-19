@@ -1,0 +1,135 @@
+/* ============================================
+   Template 07 — Sidebar Layout
+   Left sidebar with contact info + skills
+   ============================================ */
+
+.template-07 {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+    padding: 0 !important;
+}
+
+.template-07 .resume-sidebar {
+    background: #1e293b;
+    color: white;
+    padding: 20px 16px;
+    min-height: 100%;
+}
+
+.template-07 .resume-main {
+    padding: 20px;
+}
+
+.template-07 .resume-profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #475569;
+    margin: 0 auto 14px;
+    display: block;
+}
+
+.template-07 .resume-name {
+    font-size: 14pt;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.template-07 .resume-sidebar .resume-section {
+    margin-bottom: 14px;
+}
+
+.template-07 .resume-sidebar .resume-section-title {
+    font-size: 9pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #334155;
+}
+
+.template-07 .resume-sidebar .resume-contact {
+    font-size: 8pt;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+.template-07 .resume-sidebar .resume-contact span {
+    display: block;
+    margin-bottom: 4px;
+    word-break: break-all;
+}
+
+.template-07 .resume-sidebar .resume-skill-item {
+    font-size: 8.5pt;
+    padding: 3px 8px;
+    background: #334155;
+    color: #e2e8f0;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 2px 2px;
+}
+
+.template-07 .resume-sidebar .resume-languages-list li,
+.template-07 .resume-sidebar .resume-interests-list li {
+    font-size: 8.5pt;
+    color: #cbd5e1;
+    margin-bottom: 3px;
+}
+
+.template-07 .resume-main .resume-section {
+    margin-bottom: 14px;
+}
+
+.template-07 .resume-main .resume-section-title {
+    font-size: 12pt;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.template-07 .resume-main .resume-entry {
+    margin-bottom: 10px;
+}
+
+.template-07 .resume-main .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.template-07 .resume-main .resume-entry-title {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.template-07 .resume-main .resume-entry-subtitle {
+    font-size: 9.5pt;
+    color: #475569;
+}
+
+.template-07 .resume-main .resume-entry-date {
+    font-size: 9pt;
+    color: #64748b;
+}
+
+.template-07 .resume-main .resume-entry-description {
+    font-size: 9.5pt;
+    color: #475569;
+    line-height: 1.5;
+    margin-top: 3px;
+}
+
+.template-07 .resume-summary {
+    font-size: 9.5pt;
+    color: #475569;
+    line-height: 1.6;
+}

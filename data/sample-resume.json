@@ -1,0 +1,95 @@
+{
+  "personal": {
+    "fullName": "Alexandra Johnson",
+    "email": "alexandra.johnson@email.com",
+    "phone": "+1 (555) 987-6543",
+    "address": "San Francisco, CA",
+    "linkedin": "linkedin.com/in/alexandrajohnson",
+    "portfolio": "www.alexandrajohnson.dev",
+    "profileImage": ""
+  },
+  "summary": "Senior Full-Stack Developer with 8+ years of experience building scalable web applications and leading cross-functional teams. Passionate about clean code architecture, performance optimization, and mentoring junior developers. Proven track record of delivering high-impact projects for Fortune 500 clients.",
+  "education": [
+    {
+      "degree": "Master of Science in Computer Science",
+      "institution": "Stanford University",
+      "startDate": "2014-09",
+      "endDate": "2016-06",
+      "description": "Specialization in Distributed Systems and Machine Learning. GPA: 3.9/4.0"
+    },
+    {
+      "degree": "Bachelor of Science in Software Engineering",
+      "institution": "University of California, Berkeley",
+      "startDate": "2010-09",
+      "endDate": "2014-06",
+      "description": "Dean's List, Computer Science Club President"
+    }
+  ],
+  "experience": [
+    {
+      "jobTitle": "Senior Full-Stack Developer",
+      "company": "TechVision Inc.",
+      "startDate": "2021-03",
+      "endDate": "",
+      "current": true,
+      "description": "Lead a team of 8 developers building a SaaS analytics platform serving 50K+ users. Architected microservices infrastructure reducing deployment time by 60%. Implemented real-time data pipelines processing 10M+ events daily."
+    },
+    {
+      "jobTitle": "Full-Stack Developer",
+      "company": "InnovateLab",
+      "startDate": "2018-06",
+      "endDate": "2021-02",
+      "current": false,
+      "description": "Built and maintained 5 client-facing web applications using React and Node.js. Introduced automated testing pipelines improving code coverage from 40% to 92%. Mentored 4 junior developers through technical growth plans."
+    },
+    {
+      "jobTitle": "Junior Developer",
+      "company": "DataStream Corp",
+      "startDate": "2016-07",
+      "endDate": "2018-05",
+      "current": false,
+      "description": "Developed RESTful APIs and responsive frontends for enterprise applications. Optimized database queries resulting in 45% faster page load times."
+    }
+  ],
+  "skills": [
+    "JavaScript", "TypeScript", "React", "Node.js", "Python",
+    "PostgreSQL", "MongoDB", "AWS", "Docker", "Kubernetes",
+    "GraphQL", "REST APIs", "Git", "CI/CD", "Agile/Scrum"
+  ],
+  "projects": [
+    {
+      "name": "CloudDeploy Platform",
+      "description": "Open-source deployment automation tool with 2.5K GitHub stars. Built with Go and React, supports AWS, GCP, and Azure.",
+      "link": "github.com/alexandraj/clouddeploy"
+    },
+    {
+      "name": "DataViz Dashboard",
+      "description": "Real-time analytics dashboard with customizable widgets and data export. Used by 3 enterprise clients.",
+      "link": "dataviz-demo.alexandrajohnson.dev"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Solutions Architect – Professional",
+      "issuer": "Amazon Web Services",
+      "date": "2023-04"
+    },
+    {
+      "name": "Google Cloud Professional Data Engineer",
+      "issuer": "Google",
+      "date": "2022-11"
+    }
+  ],
+  "languages": [
+    { "name": "English", "proficiency": "Native" },
+    { "name": "Spanish", "proficiency": "Professional" },
+    { "name": "French", "proficiency": "Conversational" }
+  ],
+  "interests": [
+    "Open Source Contributing",
+    "Tech Blogging",
+    "Mountain Hiking",
+    "Chess",
+    "Machine Learning Research"
+  ]
+}

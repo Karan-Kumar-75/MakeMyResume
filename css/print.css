@@ -1,0 +1,82 @@
+/* ============================================
+   Print Stylesheet — A4 Resume Output
+   ============================================ */
+
+@media print {
+
+    /* Hide everything except the resume */
+    body * {
+        visibility: hidden;
+    }
+
+    .preview-resume,
+    .preview-resume * {
+        visibility: visible;
+    }
+
+    .preview-resume {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    /* Page setup */
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    /* Page break handling */
+    .resume-section {
+        page-break-inside: avoid;
+    }
+
+    .resume-entry {
+        page-break-inside: avoid;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+    /* Remove backgrounds, shadows for print */
+    .app-header,
+    .app-footer,
+    .form-panel,
+    .step-wizard,
+    .step-navigation,
+    .preview-header,
+    .preview-toggle,
+    .template-gallery,
+    .hero,
+    .btn,
+    .toast-container {
+        display: none !important;
+    }
+
+    /* Clean typography */
+    body {
+        font-size: 10pt;
+        line-height: 1.4;
+        color: #000;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    /* Ensure proper sizing */
+    .preview-resume-inner {
+        transform: none !important;
+        width: 210mm;
+        min-height: 297mm;
+    }
+}

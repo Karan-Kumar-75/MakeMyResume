@@ -1,0 +1,126 @@
+/* ============================================
+   Template 20 — Premium Gold Accent
+   Luxurious, gold touches, executive feel
+   ============================================ */
+
+.template-20 .resume-header {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: white;
+    padding: 24px;
+    margin: -15mm -15mm 16px -15mm;
+    width: calc(100% + 30mm);
+    text-align: center;
+    position: relative;
+}
+
+.template-20 .resume-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #d4a853, transparent);
+}
+
+.template-20 .resume-name {
+    font-size: 26pt;
+    font-weight: 700;
+    color: #d4a853;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.template-20 .resume-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    font-size: 9pt;
+    color: #94a3b8;
+}
+
+.template-20 .resume-profile-image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #d4a853;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.template-20 .resume-section {
+    margin-bottom: 14px;
+}
+
+.template-20 .resume-section-title {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #92742e;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #d4a853;
+}
+
+.template-20 .resume-entry {
+    margin-bottom: 10px;
+}
+
+.template-20 .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.template-20 .resume-entry-title {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.template-20 .resume-entry-subtitle {
+    font-size: 9.5pt;
+    color: #92742e;
+}
+
+.template-20 .resume-entry-date {
+    font-size: 9pt;
+    color: #64748b;
+    font-style: italic;
+}
+
+.template-20 .resume-entry-description {
+    font-size: 9.5pt;
+    color: #475569;
+    line-height: 1.5;
+    margin-top: 3px;
+}
+
+.template-20 .resume-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.template-20 .resume-skill-item {
+    font-size: 9pt;
+    padding: 3px 12px;
+    background: linear-gradient(135deg, #fef9e7, #fef3c7);
+    color: #92742e;
+    border-radius: 16px;
+    border: 1px solid #d4a853;
+    font-weight: 500;
+}
+
+.template-20 .resume-summary {
+    font-size: 9.5pt;
+    color: #475569;
+    line-height: 1.6;
+    text-align: center;
+    border-left: 3px solid #d4a853;
+    border-right: 3px solid #d4a853;
+    padding: 8px 16px;
+}

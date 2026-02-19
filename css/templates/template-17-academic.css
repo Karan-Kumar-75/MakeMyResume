@@ -1,0 +1,121 @@
+/* ============================================
+   Template 17 — Academic CV
+   Scholarly, detailed, publication-ready
+   ============================================ */
+
+.template-17 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 10pt;
+}
+
+.template-17 .resume-header {
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1e293b;
+}
+
+.template-17 .resume-name {
+    font-size: 20pt;
+    font-weight: 700;
+    color: #1e293b;
+    font-family: 'Georgia', serif;
+    margin-bottom: 4px;
+}
+
+.template-17 .resume-contact {
+    font-size: 9pt;
+    color: #475569;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+.template-17 .resume-contact span {
+    display: inline;
+}
+
+.template-17 .resume-contact span:not(:last-child)::after {
+    content: ' | ';
+    color: #94a3b8;
+}
+
+.template-17 .resume-profile-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    object-fit: cover;
+    float: right;
+    margin-left: 14px;
+    border: 1px solid #cbd5e1;
+}
+
+.template-17 .resume-section {
+    margin-bottom: 12px;
+}
+
+.template-17 .resume-section-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #e2e8f0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10pt;
+}
+
+.template-17 .resume-entry {
+    margin-bottom: 8px;
+}
+
+.template-17 .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.template-17 .resume-entry-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.template-17 .resume-entry-subtitle {
+    font-size: 9.5pt;
+    color: #475569;
+    font-style: italic;
+}
+
+.template-17 .resume-entry-date {
+    font-size: 9pt;
+    color: #64748b;
+}
+
+.template-17 .resume-entry-description {
+    font-size: 9.5pt;
+    color: #334155;
+    line-height: 1.6;
+    margin-top: 2px;
+    text-align: justify;
+}
+
+.template-17 .resume-skills-list {
+    font-size: 9.5pt;
+    color: #334155;
+}
+
+.template-17 .resume-skill-item {
+    display: inline;
+}
+
+.template-17 .resume-skill-item:not(:last-child)::after {
+    content: ', ';
+}
+
+.template-17 .resume-summary {
+    font-size: 10pt;
+    color: #334155;
+    line-height: 1.6;
+    text-align: justify;
+}

@@ -1,0 +1,121 @@
+/* ============================================
+   Card Styles
+   ============================================ */
+
+.card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.card-body {
+    padding: var(--space-6);
+}
+
+.card-header {
+    padding: var(--space-5) var(--space-6);
+    border-bottom: 1px solid var(--color-border-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-footer {
+    padding: var(--space-4) var(--space-6);
+    border-top: 1px solid var(--color-border-light);
+    background: var(--color-bg-alt);
+}
+
+/* Template card */
+.template-card {
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.template-card:hover {
+    border-color: var(--color-primary-light);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.template-card.active {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.template-card.active::after {
+    content: '✓';
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    z-index: 2;
+}
+
+.template-preview {
+    width: 100%;
+    aspect-ratio: 210/297;
+    /* A4 */
+    background: white;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    overflow: hidden;
+    position: relative;
+    padding: var(--space-3);
+}
+
+.template-preview-inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 5px;
+    line-height: 1.4;
+    transform-origin: top left;
+}
+
+.template-info {
+    padding: var(--space-3) var(--space-4);
+    text-align: center;
+    background: var(--color-surface);
+}
+
+.template-name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.template-category {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+/* Step card */
+.step-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-light);
+}

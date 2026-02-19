@@ -1,0 +1,128 @@
+/* ============================================
+   Template 01 — Minimal Classic
+   Clean, simple, timeless design
+   ============================================ */
+
+.template-01 .resume-header {
+    text-align: center;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #1e293b;
+    margin-bottom: 16px;
+}
+
+.template-01 .resume-name {
+    font-size: 22pt;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.template-01 .resume-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    font-size: 9pt;
+    color: #64748b;
+}
+
+.template-01 .resume-contact span::before {
+    content: '';
+}
+
+.template-01 .resume-section {
+    margin-bottom: 14px;
+}
+
+.template-01 .resume-section-title {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.template-01 .resume-entry {
+    margin-bottom: 10px;
+}
+
+.template-01 .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+}
+
+.template-01 .resume-entry-title {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.template-01 .resume-entry-subtitle {
+    font-size: 9.5pt;
+    color: #475569;
+    font-style: italic;
+}
+
+.template-01 .resume-entry-date {
+    font-size: 9pt;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+.template-01 .resume-entry-description {
+    font-size: 9.5pt;
+    color: #334155;
+    line-height: 1.5;
+    margin-top: 3px;
+}
+
+.template-01 .resume-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.template-01 .resume-skill-item {
+    font-size: 9pt;
+    color: #334155;
+    padding: 2px 8px;
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.template-01 .resume-profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 10px;
+    display: block;
+    border: 2px solid #e2e8f0;
+}
+
+.template-01 .resume-summary {
+    font-size: 9.5pt;
+    color: #475569;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.template-01 .resume-languages-list,
+.template-01 .resume-interests-list,
+.template-01 .resume-certs-list {
+    font-size: 9.5pt;
+    color: #334155;
+}
+
+.template-01 .resume-languages-list li,
+.template-01 .resume-interests-list li,
+.template-01 .resume-certs-list li {
+    margin-bottom: 3px;
+}

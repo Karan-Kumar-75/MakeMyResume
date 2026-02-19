@@ -1,0 +1,126 @@
+/* ============================================
+   Template 13 — Technical Resume
+   Code-inspired, monospace accents
+   ============================================ */
+
+.template-13 .resume-header {
+    background: #18181b;
+    color: #a1a1aa;
+    padding: 20px 24px;
+    margin: -15mm -15mm 16px -15mm;
+    width: calc(100% + 30mm);
+    font-family: 'Courier New', monospace;
+}
+
+.template-13 .resume-name {
+    font-size: 22pt;
+    font-weight: 700;
+    color: #22d3ee;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 4px;
+}
+
+.template-13 .resume-name::before {
+    content: '> ';
+    color: #a855f7;
+}
+
+.template-13 .resume-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 8.5pt;
+    color: #a1a1aa;
+}
+
+.template-13 .resume-profile-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 2px solid #22d3ee;
+    float: right;
+    margin-left: 12px;
+}
+
+.template-13 .resume-section {
+    margin-bottom: 14px;
+}
+
+.template-13 .resume-section-title {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #a855f7;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed #3f3f46;
+    font-family: 'Courier New', monospace;
+}
+
+.template-13 .resume-section-title::before {
+    content: '// ';
+    color: #71717a;
+}
+
+.template-13 .resume-entry {
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    background: #fafafa;
+    border-radius: 4px;
+    border-left: 3px solid #a855f7;
+}
+
+.template-13 .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.template-13 .resume-entry-title {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #18181b;
+}
+
+.template-13 .resume-entry-subtitle {
+    font-size: 9.5pt;
+    color: #a855f7;
+}
+
+.template-13 .resume-entry-date {
+    font-size: 8.5pt;
+    color: #71717a;
+    font-family: 'Courier New', monospace;
+}
+
+.template-13 .resume-entry-description {
+    font-size: 9.5pt;
+    color: #3f3f46;
+    line-height: 1.5;
+    margin-top: 3px;
+}
+
+.template-13 .resume-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.template-13 .resume-skill-item {
+    font-size: 8.5pt;
+    padding: 3px 10px;
+    background: #18181b;
+    color: #22d3ee;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+.template-13 .resume-summary {
+    font-size: 9.5pt;
+    color: #3f3f46;
+    line-height: 1.6;
+    padding: 8px 10px;
+    background: #fafafa;
+    border-radius: 4px;
+    border-left: 3px solid #22d3ee;
+}

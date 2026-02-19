@@ -1,0 +1,120 @@
+/* ============================================
+   Template 09 — Elegant Serif Style
+   Sophisticated, serif fonts, classic feel
+   ============================================ */
+
+.template-09 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.template-09 .resume-header {
+    text-align: center;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.template-09 .resume-name {
+    font-size: 26pt;
+    font-weight: 400;
+    color: #1f2937;
+    letter-spacing: 2px;
+    font-family: 'Georgia', serif;
+    margin-bottom: 6px;
+}
+
+.template-09 .resume-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-size: 9pt;
+    color: #6b7280;
+    font-style: italic;
+}
+
+.template-09 .resume-profile-image {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #9ca3af;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.template-09 .resume-section {
+    margin-bottom: 14px;
+}
+
+.template-09 .resume-section-title {
+    font-size: 12pt;
+    font-weight: 400;
+    color: #1f2937;
+    font-style: italic;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #e5e7eb;
+    letter-spacing: 1px;
+}
+
+.template-09 .resume-entry {
+    margin-bottom: 10px;
+}
+
+.template-09 .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.template-09 .resume-entry-title {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.template-09 .resume-entry-subtitle {
+    font-size: 9.5pt;
+    color: #6b7280;
+    font-style: italic;
+}
+
+.template-09 .resume-entry-date {
+    font-size: 9pt;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.template-09 .resume-entry-description {
+    font-size: 9.5pt;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-top: 3px;
+}
+
+.template-09 .resume-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.template-09 .resume-skill-item {
+    font-size: 9pt;
+    color: #4b5563;
+    font-style: italic;
+}
+
+.template-09 .resume-skill-item:not(:last-child)::after {
+    content: ' •';
+    color: #d1d5db;
+    margin-left: 6px;
+}
+
+.template-09 .resume-summary {
+    font-size: 10pt;
+    color: #4b5563;
+    line-height: 1.7;
+    text-align: justify;
+    font-style: italic;
+}

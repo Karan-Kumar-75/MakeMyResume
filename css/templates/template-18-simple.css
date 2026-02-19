@@ -1,0 +1,97 @@
+/* ============================================
+   Template 18 — Simple Minimal
+   Bare-bones, ultra-clean
+   ============================================ */
+
+.template-18 .resume-header {
+    margin-bottom: 14px;
+}
+
+.template-18 .resume-name {
+    font-size: 24pt;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.template-18 .resume-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    font-size: 9pt;
+    color: #64748b;
+}
+
+.template-18 .resume-profile-image {
+    display: none;
+    /* Ultra simple — no image */
+}
+
+.template-18 .resume-section {
+    margin-bottom: 14px;
+}
+
+.template-18 .resume-section-title {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.template-18 .resume-entry {
+    margin-bottom: 10px;
+}
+
+.template-18 .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.template-18 .resume-entry-title {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.template-18 .resume-entry-subtitle {
+    font-size: 9.5pt;
+    color: #64748b;
+}
+
+.template-18 .resume-entry-date {
+    font-size: 9pt;
+    color: #94a3b8;
+}
+
+.template-18 .resume-entry-description {
+    font-size: 9.5pt;
+    color: #475569;
+    line-height: 1.5;
+    margin-top: 3px;
+}
+
+.template-18 .resume-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+}
+
+.template-18 .resume-skill-item {
+    font-size: 9pt;
+    color: #475569;
+}
+
+.template-18 .resume-skill-item:not(:last-child)::after {
+    content: '·';
+    margin-left: 8px;
+    color: #cbd5e1;
+}
+
+.template-18 .resume-summary {
+    font-size: 9.5pt;
+    color: #475569;
+    line-height: 1.6;
+}

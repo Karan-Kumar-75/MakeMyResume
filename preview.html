@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Preview — MakeMyResume</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/print.css">
+    <!-- Load all template CSS -->
+    <link rel="stylesheet" href="css/templates/template-01-minimal.css">
+    <link rel="stylesheet" href="css/templates/template-02-modern.css">
+    <link rel="stylesheet" href="css/templates/template-03-executive.css">
+    <link rel="stylesheet" href="css/templates/template-04-creative.css">
+    <link rel="stylesheet" href="css/templates/template-05-ats.css">
+    <link rel="stylesheet" href="css/templates/template-06-compact.css">
+    <link rel="stylesheet" href="css/templates/template-07-sidebar.css">
+    <link rel="stylesheet" href="css/templates/template-08-two-column.css">
+    <link rel="stylesheet" href="css/templates/template-09-serif.css">
+    <link rel="stylesheet" href="css/templates/template-10-dark-header.css">
+    <link rel="stylesheet" href="css/templates/template-11-timeline.css">
+    <link rel="stylesheet" href="css/templates/template-12-fresher.css">
+    <link rel="stylesheet" href="css/templates/template-13-technical.css">
+    <link rel="stylesheet" href="css/templates/template-14-business-analyst.css">
+    <link rel="stylesheet" href="css/templates/template-15-software-dev.css">
+    <link rel="stylesheet" href="css/templates/template-16-marketing.css">
+    <link rel="stylesheet" href="css/templates/template-17-academic.css">
+    <link rel="stylesheet" href="css/templates/template-18-simple.css">
+    <link rel="stylesheet" href="css/templates/template-19-bold-header.css">
+    <link rel="stylesheet" href="css/templates/template-20-premium.css">
+    <style>
+        body {
+            background: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .resume-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 15mm;
+            font-family: 'Poppins', sans-serif;
+            font-size: 10pt;
+            line-height: 1.5;
+            color: #1e293b;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 100px 40px;
+            color: #94a3b8;
+        }
+
+        .no-data h2 {
+            margin-bottom: 12px;
+        }
+
+        .no-data a {
+            color: #6366f1;
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-page {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-page" id="resume-output">
+        <div class="no-data">
+            <h2>No Resume Data Found</h2>
+            <p>Please fill in the form on the <a href="index.html">main page</a> first.</p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { generatePreview } from './js/modules/preview-generator.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const stored = localStorage.getItem('resumeBuilderData');
+                if (!stored) return;
+
+                const data = JSON.parse(stored);
+                const template = localStorage.getItem('resumeBuilderTemplate') || 'template-01';
+
+                const output = document.getElementById('resume-output');
+                if (output && data.personal?.fullName) {
+                    output.innerHTML = generatePreview(data, template);
+                    document.title = `${data.personal.fullName} — Resume`;
+                }
+            } catch (e) {
+                console.error('Failed to load preview:', e);
+            }
+        });
+    </script>
+</body>
+
+</html>
